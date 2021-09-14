@@ -1,0 +1,68 @@
+<!--pages/readPage/readPage.wxml-->
+
+
+<view class="audio" wx:if="{{audioshow}}">
+  <wxs-diyAudioPlayer audioSrc="{{audioSrc}}">
+  </wxs-diyAudioPlayer>
+</view>
+<image id = "startImage" style="position:absolute; pointer-events: none;z-index:-1;" mode="aspectFill" src="{{randomURL}}"/>
+<view id="titleSpace"><text>\n</text></view>
+<scroll-view scroll-y="{{true}}" bindscrolltolower="lower" lower-threshold="50" style="height:{{scrollHeight}}px;">
+<view wx:for="{{list}}" wx:key="id">
+
+  <view class="tdTitle" wx:if="{{index==6 }}">
+    <test>{{item.text}}</test>
+  </view>
+
+  <view class="tdTitle {{showView?'viewShow':'viewHide'}}" wx:if="{{index==7 }}">
+    <test>{{item.text}}</test>
+  </view>
+
+  <view class="td" wx:if="{{index%2==0&&index>=8}}" style="user-select:text !important;-webkit-user-select" >
+    <test selectable="true" user-select="true" >{{item.text}}</test>
+  </view>
+
+  <view class="td {{showView?'viewShow':'viewHide'}}" wx:if="{{index%2==1&&index>=8}}">
+    <test>{{item.text}}</test>
+  </view>
+
+</view>
+<text>\n</text>
+<view class="tdSubtitle">
+    <view>{{subtitle}}</view>
+  </view>
+
+<image lazy-load="true" mode="aspectFit" style="height:300rpx;" id="pictureEnd" src="{{randomURLbottom}}"/>
+</scroll-view>
+
+<view class="addbtn" id="addbtn">
+  <view class="content">
+  <block>
+    <view class="list-content" bindtap="onListClick" >
+      <view>
+        <text style ="font-weight:bold;">{{ list_name }}</text>
+      </view>
+    </view>
+
+
+    <scroll-view scroll-y="{{true}}" class="list-text {{selected ? 'show-content' : 'hidden-content'}}">
+     <block wx:for="{{ list_word }}" wx:key="index">
+      <view class="list-word" >
+      <text style=" width: 70%;align-items: left;justify-content: left;text-align: left;">{{ item}}</text>
+      <button style="width: 30%;font-size: 10px; align-items: right;" hover-class="none" id="{{index}}" bindtap="{{selectedbtn[index] ? 'RemoveWordList' : 'AddWordList'}}" >{{btnText[index]}}</button>
+       </view>
+    </block>
+    </scroll-view>
+
+
+  </block>
+</view>
+
+
+  <button wx:if="{{!translated}}" id="buttombtn" type="default" size="{{defaultSize}}"  bindtap="onChangeShowState" style="width:33%; font-size:15px">翻译</button>
+  <button wx:if="{{translated}}" id="buttombtn" type="default" size="{{defaultSize}}"  bindtap="onChangeShowState" style="width:33%;font-size:15px;color:DarkGoldenRod">隐藏翻译</button>
+  <button wx:if="{{!collected}}" type="default" size="{{defaultSize}}"  bindtap="collected" style="width:34%;font-size:15px">收藏</button>
+  <button wx:if="{{collected}}" type="default" size="{{defaultSize}}"  bindtap="uncollected" style="width:34%;color:DarkGoldenRod;font-size:15px">已收藏</button>
+  <button type="default" size="{{defaultSize}}" disabled="{{disabled}}" bindtap="endtime" style="width:33%;font-size:15px">完成</button>
+
+</view>

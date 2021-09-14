@@ -1,0 +1,105 @@
+/* pages/readPage/readPage.wxss */
+
+image{
+  height:240rpx;
+  width:100%;
+}
+
+
+.td { 
+  display: inline-block;
+  text-align:justify;
+  vertical-align:top;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  margin-bottom: 20px;
+  }
+  .tdTitle { 
+    display: inline-block;
+    text-align:justify;
+    vertical-align:top;
+    margin-left:20rpx;
+    margin-right:20rpx;
+    margin-bottom: 20px;
+    font-weight:bolder;
+    }
+    .tdSubtitle { 
+      margin-left:20rpx;
+      margin-right:20rpx;
+      margin-bottom: 20px;
+      font-size:x-small;
+      color: #696969;
+      font-style:italic;
+      }
+
+
+  /** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  background-color: blue;
+}
+
+
+.addbtn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+}
+.viewHide{  
+  display: none;  
+  }  
+  .viewShow{  
+  display: block;  
+  }  
+
+
+
+
+.content {
+ 
+  font-size: 13px;
+  color: black;
+  
+}
+
+.list-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 40px;
+  background-color:  #f2f2f2;
+
+}
+.list-word {
+  display: flex;
+  padding-left: 15rpx;
+  line-height: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.list-text {
+  padding-top: 5px;
+  transition: all 0.5s ease;
+  
+  display: block;
+}
+
+.hidden-content {
+
+  display: none;
+}
+.show-content {
+
+  height: 300rpx;
+}
+.audio{
+ 
+  padding-top:120rpx;
+  
+
+}

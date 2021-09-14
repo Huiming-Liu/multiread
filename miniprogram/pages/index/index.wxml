@@ -1,0 +1,106 @@
+<!--pages/demo01/demo01.wxml-->
+
+
+<view class='notice-wrap' hidden='{{hideNotice}}'>
+　　<block class='tongzhitext'>
+　　　　<text class="tongzhi-text">{{notice}}</text>
+　　</block>
+　　<view bindtap='switchNotice' class="closeView">x</view>
+</view>
+
+
+
+<view class="weui-search-bar {{show ? '' : 'showmessage'}}">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索标题" bindtap="wxSearchTab" maxlength="30" bindinput="searchInputAction"/>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{!searchbar}}">
+<swiper autoplay="ture" duration="500" interval="3000" id="picture">
+  <swiper-item><image mode="widthFix" src="cloud://multiread-8gcsb9xfcb0114d9.6d75-multiread-8gcsb9xfcb0114d9-1304836910/image/home1.png"/></swiper-item>
+  <swiper-item><image mode="widthFix" src="cloud://multiread-8gcsb9xfcb0114d9.6d75-multiread-8gcsb9xfcb0114d9-1304836910/image/home2.png"/></swiper-item>
+  <swiper-item><image mode="widthFix" src="cloud://multiread-8gcsb9xfcb0114d9.6d75-multiread-8gcsb9xfcb0114d9-1304836910/image/home3.jpg"/></swiper-item>
+  <!--<navigator url="../aboutMe/aboutMe?title=aboutMe">
+  <swiper-item>
+    <image mode="widthFix" src="cloud://multiread-8gcsb9xfcb0114d9.6d75-multiread-8gcsb9xfcb0114d9-1304836910/image/home3.png"/>
+</swiper-item>
+</navigator>-->
+</swiper>
+
+
+<mp-tabs 
+  tabs="{{tabs}}" 
+  activeTab="{{activeTab}}" 
+  swiperClass="weui-tabs-swiper" 
+  bindtabclick="onTabCLick"
+  bindchange="onChange"
+  activeClass="tab-bar-title__selected"
+  tab-underline-color="#F4D03F" 
+  swiperStyle="height: {{(tabEN>tabDE?tabEN:tabDE)>(tabDE>tabFR?tabDE:tabFR)?(tabEN>tabDE?tabEN:tabDE):(tabDE>tabFR?tabDE:tabFR)}}px"
+ 
+
+>
+  <block wx:for='{{tabs}}' wx:key="title">
+    
+    <view wx:if="{{index==0}}" class="tab-content tview" slot="tab-content-{{index}}" id="tabsSwiperEN"> 
+    <view wx:if="{{!IsarticleEN}}">暂无显示内容</view>
+      <view class="tview flex-item-V"> 
+        <view class="tview flex-item-V" hover-class='navigator-hover' wx:for="{{listEN}}" wx:key="id" id='textEN'>
+         <navigator open-type ="redirect" url="../readPage/readPage?articleid={{item.id}}&language={{item.lan}}" class="tview textborder flex-item-V">
+            <text>{{item.titleFO}}</text>
+            <text>{{item.titleCN}}</text>
+          </navigator> 
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{index==1}}" class="tab-content tview" slot="tab-content-{{index}}" id="tabsSwiperDE"> 
+      <view wx:if="{{!IsarticleDE}}">暂无显示内容</view>
+      <view class="tview flex-item-V"> 
+        <view class="tview flex-item-V" hover-class='navigator-hover' wx:for="{{listDE}}" wx:key="id" id='textDE'>
+         <navigator url="../readPage/readPage?articleid={{item.id}}&language={{item.lan}}" class="tview textborder flex-item-V">
+            <text>{{item.titleFO}}</text>
+            <text>{{item.titleCN}}</text>
+          </navigator> 
+        </view>
+      </view>
+    </view>
+
+
+    <view wx:if="{{index==2}}" class="tab-content tview" slot="tab-content-{{index}}" id="tabsSwiperFR"> 
+      <view wx:if="{{!IsarticleFR}}">暂无显示内容</view>
+      <view class="tview flex-item-V"> 
+        <view class="tview flex-item-V" hover-class='navigator-hover' wx:for="{{listFR}}" wx:key="id" id='textFR'>
+         <navigator url="../readPage/readPage?articleid={{item.id}}&language={{item.lan}}" class="tview textborder flex-item-V">
+            <text>{{item.titleFO}}</text>
+            <text>{{item.titleCN}}</text>
+          </navigator> 
+        </view>
+      </view>
+    </view>
+
+
+  </block>
+
+</mp-tabs>
+
+</view>
+<view wx:if="{{searchbar}}" class="shadow">
+  <view class='closeSearch' hidden='{{hideNotice}}'>
+<view bindtap='closeSearch' class="closeView">x</view>
+<view><text>\n</text></view>
+<view class="tview flex-item-V search-content-body" wx:for="{{search}}" wx:key="_id" >
+
+<navigator url="../readPage/readPage?articleid={{item.id}}&language={{item.lan}}" class="tview flex-item-V textborder">
+<text>{{item.titleCN}}</text>
+<text>{{item.titleFO}}</text>
+</navigator> 
+
+</view>
+</view>
+</view>

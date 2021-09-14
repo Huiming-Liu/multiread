@@ -1,0 +1,148 @@
+<!--pages/userPage/userPage.wxml-->
+
+<view class="profile">
+<view class="userinfo-avatar">
+   <open-data type="userAvatarUrl"></open-data>
+ </view>
+   <open-data class="userinfo-nickname" type="userNickName"></open-data>
+</view>
+
+<view class="content">
+  <block wx:for="{{ list_name }}" wx:key="index">
+   <view class="list-content" bindtap="onListClick" data-index="{{ index }}" >
+     <view>
+      <text style ="font-weight:bold;">{{ item }}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{index==0 }}" >
+  <scroll-view scroll-y="{{true}}" class="list-text {{selected[index] ? 'show-contents' : 'hidden-content'}}">
+    <button wx:if="{{!isWordList}}" style="font-size:12px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">暂无内容显示</button>
+    <view wx:if="{{isWordList}}" style="text-align:center;padding:10px;border-bottom: 2px solid #ddd;margin-right:30rpx">
+      <button type="default" size="mini" plain="true" bindtap="downloadWordlistFile"  style="font-size:10px;border-color:#ddd;background-color:white;">点击复制词单Excel文件下载链接，一分钟内有效</button>
+      
+    </view>
+
+    <block wx:for="{{ wordList }}" wx:key="index">
+      <view class="list-word" style="margin-right:30rpx">
+        <text style="padding:5rpx">{{ item}}</text>
+
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+
+<view wx:if="{{index==1 }}">
+  <scroll-view scroll-y="{{true}}" class="list-text {{selected[index] ? 'show-contents' : 'hidden-content'}}">
+    <button wx:if="{{!isCollected}}" style="font-size:12px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">暂无内容显示</button>
+    <view style="margin-right:30rpx"> 
+        <view style="padding:5rpx" hover-class='navigator-hover' wx:for="{{userCollection}}" wx:key="id">
+         <navigator url="../readPage/readPage?articleid={{item.id}}&language={{item.lan}}" class="tview">
+            <text>{{item.titleFO}}</text>
+            <text>{{item.titleCN}}</text>
+          </navigator> 
+        </view>
+      </view>
+  
+  </scroll-view>
+</view>
+
+
+<view wx:if="{{index==2 }}">
+  <scroll-view scroll-y="{{true}}" class="list-text {{selected[index] ? 'show-content' : 'hidden-content'}}">
+    <text>\n</text>
+  <calendar dataArr="{{dataArr}}"  bindchange="calendarChange"></calendar>
+  
+  </scroll-view>
+</view>
+
+<view wx:if="{{index==3 }}">
+ 
+  <view class="list-text" hidden="{{!selected[index]}}" style="height:{{chartheight}}"> 
+   <button bindtap="init" wx:if="{{!isLoaded && !isDisposed && cloud }}" style="font-size:14px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">加载数据图</button>
+
+    <button bindtap="hiddenchart" wx:if="{{isLoaded && !isDisposed && cloud }}" style="font-size:14px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">隐藏数据图</button>
+   
+    <button bindtap="showchart" wx:if="{{isLoaded && isDisposed && cloud }}" style="font-size:14px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">加载数据图</button>
+
+    <button wx:if="{{!cloud }}" style="font-size:12px;border-color:#ddd;background-color:transparent;padding-top:40rpx;">暂无数据显示</button>
+    
+ 
+    <view class="container" style="position:absolute;"wx:if="{{cloud}}">
+        <view class="wrapper" hidden="{{tagState}}" bindtouchmove="handletouchmove" bindtouchstart="handletouchstart">
+        <view wx:for="{{tagEle}}" wx:key="key" wx:index="{{index}}" id="tag{{index}}" class="{{index  % 2 ? 'tagc1' : index % 3 ? 'tagc2' : index % 5 ? 'tagc3' :'tagc4'}}" style="opacity:{{item.opacity}};top: {{item.top}};left: {{item.left}}; z-index: {{item.zIndex}};font-size: {{item.fontSize}}">{{item.title}}
+      </view>
+    </view>
+  </view>
+
+
+ <view class="charts" hidden="{{isDisposed}}" wx:if="{{cloud }}">
+  <!--<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" force-use-old-canvas="true" ec="{{ ec }}"></ec-canvas>
+  <image wx:if="{{imageSrc!==''}}" src="{{imageSrc}}" ></image>-->
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+ </view>
+</view>
+</view>
+
+
+<view  wx:if="{{index==4 }}" class="list-text {{selected[index] ? 'show-contentl' : 'hidden-content'}}">
+<text>\n</text>
+<view class="about" wx:for="{{about}}" wx:key="index" ><text>{{item}}</text></view>
+<view style="padding:50rpx; text-align: center; "> <button type="default" size="mini" plain="true" bindtap="cancelAuth"  style="font-size:13px;border-color:#ddd;background-color:white;">取消授权</button></view> 
+</view>
+
+
+
+
+<view  wx:if="{{index==5 }}" class="list-text {{selected[index] ? 'show-contentl' : 'hidden-content'}}">
+  <text>\n</text>
+  <form catchsubmit="suggestion">
+  <view class="page-section">
+    <view class="page-section-title">称呼</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input value="{{inputValue}}" name="name" style="font-size: 13px; width:100%" class="weui-input" maxlength="30" placeholder="选填" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="page-section-title">联系方式</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input value="{{inputValue}}" name = "contact" style="font-size: 13px; width:100%" class="weui-input" maxlength="30" placeholder="选填" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="page-section-title">留言</view>
+    <view class="textarea-wrp">
+      <textarea value="{{inputValue}}" name="message" auto-focus="true" maxlength="500" placeholder="必填" style="height: 400rpx;font-size: 13px;" />
+    </view>
+  </view>
+
+  <button formType="submit" size="mini" plain="true" style="font-size:13px;border-color:#ddd;background-color:white;">提交</button></form>
+</view>
+
+
+
+
+</block>
+</view>
+
+
+
+
+
+
+
+<!--<block>
+<view class="charts content list-text">
+<button bindtap="init">加载图表</button>
+  
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+</view></block> -->
+
+

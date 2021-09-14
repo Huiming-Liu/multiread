@@ -1,0 +1,203 @@
+/* pages/userPage/userPage.wxss */
+page {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  width: 700rpx;
+  margin: 0 auto;
+  position: relative;
+  top: 320rpx;
+  left: 140rpx;
+  display: inline-block;
+  min-height: 500rpx;
+  /*background-color: #000000;**/
+  background-color: transparent;
+}
+
+.wrapper view {
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  
+  display: inline-block;
+  padding: 11rpx 40rpx;
+ /* color: #000000;**/
+  font-size: 15px;
+ /* border: 1rpx solid #e6e7e8;
+  border-radius: 18rpx;
+  background-color: #f2f4f8;**/
+  text-decoration: none;
+  font-weight:bolder;
+}
+.tagc1 {   
+  color: #E74C3C;
+}
+
+.tagc2 {   
+  color: #27AE60;
+}
+
+.tagc3 {   
+  color: #3498DB;
+}
+
+.tagc4 {   
+  color: #8E44AD;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+.profile {
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+
+  
+} 
+.charts {
+  
+  /*position: absolute;**/
+  height: 100vh;
+ /* width: 100%;**/
+ 
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /*display: flex;**/
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+
+
+.content {
+ 
+  font-size: 13px;
+  color: black;
+  
+  margin: 20rpx;
+}
+
+.list-content {
+  display: flex;
+ /* align-items: center;
+  justify-content: center;
+  text-align: center;**/
+  padding-left:10px;
+  line-height: 40px;
+  border-bottom: 1rpx solid #ddd;
+  background-color:#F5F5DC;
+  border-radius: 10rpx;
+  
+}
+.list-word {
+  display: flex;
+  padding-left: 15rpx;
+  line-height: 20px;
+  border-bottom: 2px solid #ddd;
+  
+}
+
+.list-text {
+  padding-left: 15rpx;
+  transition: all 0.5s ease;
+  display: block;
+
+}
+
+.hidden-content {
+  display: none;
+  
+}
+.show-content {
+ 
+  height: 700rpx;
+}
+.show-contents {
+ 
+  height: 400rpx;
+}
+.show-contentl {
+ 
+  height: 1000rpx;
+}
+.list-textv {
+  padding-left: 15rpx;
+  transition: all 0.5s ease;
+  height: 1000rpx;
+}
+
+@import "../weui.wxss";
+
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+  border-style:solid;
+  border-width:3rpx;
+  border-color:#ddd;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+
+.page-section-title{
+  font-size: 13px;
+  color: #999999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.chartheights{
+  height:1400rpx
+}
+.chartheightl{
+  height:1000rpx
+}
+.about{
+  margin: 0 auto;
+  width: 100%;
+  height: fit-content;
+  display:flex;
+  padding:20rpx;
+
+}
+.tview{
+  display: flex;
+  flex-direction: column;
+  border-bottom-color:#C0C0C0;
+  border-bottom-width:1px;
+  border-bottom-style:solid;
+  margin: 0 auto;
+  width: 100%;
+  height: fit-content;
+  display:flex;
+  word-break:keep-all;
+}  
+

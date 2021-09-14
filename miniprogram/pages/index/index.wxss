@@ -1,0 +1,158 @@
+/* pages/demo01/demo01.wxss */
+@import "../../components/wxSearchView/wxSearchView.wxss";
+
+
+swiper{
+  width: 100%;
+  height:calc(100vw * 170 / 350);
+ 
+}
+
+image{
+  width: 100%;
+  
+}
+
+
+
+@import '../common.wxss';
+
+page{
+    background-color: #FFFFFF;
+    height: 100%;
+}
+
+.weui-tabs-bar__wrp {
+    border-bottom: 2rpx solid #eee;
+    margin-top: 20rpx;
+}
+
+.weui-tabs-swiper {
+    width: 100%;
+    height: 100px;   /*需要根据文章的多少修改*/
+    
+    
+}
+
+
+
+.tab-content {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+
+.weui-tabs-bar__title {
+    margin: 0px 30rpx;
+    font-size: 16px;
+
+}
+
+.tab-bar-title__selected {
+    font-size: 18px;
+    font-weight: bold;
+}
+.tview{
+    display: flex;
+    flex-direction: column;
+}  
+
+.textborder{
+    
+    border-bottom-color:#C0C0C0;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+}  
+.flex-item-V{
+    margin: 0 auto;
+    width: 100%;
+    height: fit-content;
+    display:flex;
+    word-break:keep-all;
+  }
+
+  @keyframes remindMessage {
+    100% {
+      -webkit-transform: translateX(-180%);
+    }
+  
+    0% {
+      -webkit-transform: translateX(90%);
+    }
+  }
+  
+  .tongzhitext {
+      
+    margin-right:10rpx;
+    margin-left: 10rpx;
+   /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;**/
+    display: flex;
+   
+    
+  }
+  
+  .tongzhi-text {
+    font-size: 15px;
+    animation: remindMessage 15s linear infinite;
+    width: 100%;
+    color:DarkGoldenRod;
+   /* display: block;**/
+    position:absolute;
+   
+  }
+  
+  .notice-wrap {
+    background: #F9E79F;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #F4D03F;
+    font-size: 15px;
+    position:absolute;
+    z-index: 5;
+   /* margin: 10px;**/
+  }
+  
+  .closeView {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 20rpx;
+    top: 5rpx;
+    text-align: center;
+    font-size: 15px;
+    background-color: whitesmoke;
+    border-radius:15px;
+    
+  }
+  .showmessage{
+    padding-top:65rpx;
+  }
+
+  .shadow {
+    width: 100%;
+    height:100%;
+  
+  }
+  .search-content-body {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+  }
+  .closeSearch {
+    background: transparent;
+    width: 100%;
+    height: 20px;
+   /* margin: 10rpx;**/
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    position:absolute;
+    z-index: 5;
+  }

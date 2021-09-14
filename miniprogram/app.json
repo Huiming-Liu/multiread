@@ -1,0 +1,39 @@
+{
+  "pages": [
+  
+    "pages/index/index",
+    "pages/readPage/readPage",
+    "pages/userPage/userPage",
+    "pages/test/test"
+   
+    
+   
+  ],
+  "window": {
+    "backgroundColor": "#F9E79F",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F4D03F",
+    "navigationBarTitleText": "Multilingual悦读",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "icon/homepage2.png",
+        "selectedIconPath": "icon/homepage1.png"
+      },
+      {
+        "pagePath": "pages/userPage/userPage",
+        "text": "我的",
+        "iconPath": "icon/user2.png",
+        "selectedIconPath": "icon/user1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
