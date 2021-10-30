@@ -10,21 +10,12 @@ Wechat develop tool and Tencent Cloud & Wechat account. Without Wechat account, 
 
 ## Usage
 
-![001](D:\project\multiread\wx_multiread\001.PNG)
-
 The main page shows lists of reading articles and includes search function as well as notice on the top. 
-
-![002](D:\project\multiread\wx_multiread\002.PNG)
 
 If the user clicks one article, it will turn to the reading page. You can play or stop the audio all the time. The article is demonstrated bilingually. The translation can be hidden. Interesting articles and new words can be marked in the reading list. After reading, the program will records the reading time and words. Attention, only the data from users giving permission of authorization can be recorded.
 
-![003](D:\project\multiread\wx_multiread\003.PNG)
-
 In the user page, you can find the marked articles, new words lists (which can be downloaded as Excel to the cellphone.), reading data, reading calendar and contact form. You also can delete your data and cancel the authorization in this page.
 
-![004](D:\project\multiread\wx_multiread\004.png)
-
-![multiread](D:\project\multiread\wx_multiread\multiread.gif)
 
 ### Problem
 
