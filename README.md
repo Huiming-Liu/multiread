@@ -16,6 +16,8 @@ If the user clicks one article, it will turn to the reading page. You can play o
 
 In the user page, you can find the marked articles, new words lists (which can be downloaded as Excel to the cellphone.), reading data, reading calendar and contact form. You also can delete your data and cancel the authorization in this page.
 
+![multiread]({{site.url}}\multiread.gif)
+
 
 ### Problem
 
